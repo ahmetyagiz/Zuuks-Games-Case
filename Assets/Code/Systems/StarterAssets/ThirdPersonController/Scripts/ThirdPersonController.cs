@@ -75,6 +75,10 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [Header("Touch Camera")]
+        public TouchController touchController;
+        public float cameraSpeed;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -192,14 +196,12 @@ namespace StarterAssets
 
         private void CameraRotation()
         {
-            // if there is an input and camera position is not fixed
-            if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
-            {
-                //Don't multiply mouse input by Time.deltaTime;
-                float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
+            touchController.CheckTouch();
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+            if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition && Input.touchCount > 0)
+            {
+                _cinemachineTargetYaw += Input.GetTouch(touchController.myTouchCount).deltaPosition.x * Time.deltaTime * cameraSpeed;
+                _cinemachineTargetPitch -= Input.GetTouch(touchController.myTouchCount).deltaPosition.y * Time.deltaTime * cameraSpeed;
             }
 
             // clamp our rotations so our values are limited 360 degrees

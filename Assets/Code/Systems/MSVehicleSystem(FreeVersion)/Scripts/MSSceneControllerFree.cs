@@ -180,7 +180,7 @@ public class MSSceneControllerFree : MonoBehaviour {
 			buttonRight = transform.Find ("Canvas/MSButtonRight").GetComponent<MSButtonFree> ();
 			buttonUp = transform.Find ("Canvas/MSButtonUp").GetComponent<MSButtonFree> ();
 			buttonDown = transform.Find ("Canvas/MSButtonDown").GetComponent<MSButtonFree> ();
-			joystickCamera = transform.Find ("Canvas/MSJoystickCamera").GetComponent<JoystickFree> ();
+			//joystickCamera = transform.Find ("Canvas/MSJoystickCamera").GetComponent<JoystickFree> ();
 
 			nextVehicle = transform.Find ("Canvas/nextVehicle").GetComponent<Button> ();
 			previousVehicle = transform.Find ("Canvas/previousVehicle").GetComponent<Button> ();
@@ -208,9 +208,9 @@ public class MSSceneControllerFree : MonoBehaviour {
 			if (enterAndExitButton) {
 				enterAndExitButton.onClick = new Button.ButtonClickedEvent ();
 				enterAndExitButton.onClick.AddListener (() => Mobile_EnterAndExitVehicle ());
-			}
+            }
 
-			vehicleCode = vehicles [currentVehicle].GetComponent<MSVehicleControllerFree> ();
+            vehicleCode = vehicles [currentVehicle].GetComponent<MSVehicleControllerFree> ();
 			EnableOrDisableButtons (vehicleCode.isInsideTheCar);
 
 			Time.timeScale = 1;
@@ -302,10 +302,10 @@ public class MSSceneControllerFree : MonoBehaviour {
 				if(buttonUp && buttonDown){
 					MSbuttonVertical = -buttonDown.buttonInput+ buttonUp.buttonInput;
 				}
-				if(joystickCamera){
-					mouseXInput = joystickCamera.joystickHorizontal;
-					mouseYInput = joystickCamera.joystickVertical;
-				}
+				//if(joystickCamera){
+				//	mouseXInput = joystickCamera.joystickHorizontal;
+				//	mouseYInput = joystickCamera.joystickVertical;
+				//}
 				verticalInput = MSbuttonVertical;
 				horizontalInput = MSbuttonHorizontal;
 				mouseScrollWheelInput = Input.GetAxis (_mouseScrollWheelInput);

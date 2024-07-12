@@ -791,6 +791,7 @@ GameObject:
   - component: {fileID: 222363641547386608}
   - component: {fileID: 114868934043325446}
   - component: {fileID: 114898689145158002}
+  - component: {fileID: 224024572539505879}
   m_Layer: 0
   m_Name: EnterAndExitB
   m_TagString: Untagged
@@ -2407,9 +2408,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 351, y: -55.9}
+  m_AnchoredPosition: {x: 476, y: 22}
   m_SizeDelta: {x: 104.0394, y: 114.751}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &224024572539505879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224901032929400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca937bcf9ba264489dfae2cd3e0faae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starterAssetsInputsCanvas: {fileID: 915359612440185768}
+  enterAndExitButton: {fileID: 114898689145158002}
+  mSSceneControllerFree: {fileID: 114377022518031032}
 --- !u!224 &224077941468509428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2938,3 +2954,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c648a5fea78c5ff42b49ac93b340ced9, type: 3}
+--- !u!1 &915359612440185768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7142982983247127204, guid: c648a5fea78c5ff42b49ac93b340ced9,
+    type: 3}
+  m_PrefabInstance: {fileID: 915359612440185767}
+  m_PrefabAsset: {fileID: 0}

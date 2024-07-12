@@ -263,6 +263,34 @@ public class MSSceneControllerFree : MonoBehaviour {
 		}
 	}
 
+	void ShowEnterCarButton()
+	{
+		if (vehicleCode.isInsideTheCar)
+		{
+			return;
+		}
+        currentDistanceTemp = Vector3.Distance(player.transform.position, vehicleCode.doorPosition[0].transform.position);
+        for (int x = 0; x < vehicleCode.doorPosition.Length; x++)
+        {
+            proximityDistanceTemp = Vector3.Distance(player.transform.position, vehicleCode.doorPosition[x].transform.position);
+            if (proximityDistanceTemp < currentDistanceTemp)
+            {
+                currentDistanceTemp = proximityDistanceTemp;
+            }
+        }
+
+        if (currentDistanceTemp < minDistance)
+        {
+			enterAndExitButton.gameObject.SetActive (true);
+            //Debug.Log("araca yakınım");
+        }
+        else
+        {
+            enterAndExitButton.gameObject.SetActive(false);
+            //Debug.Log("araca yakın değilim");
+        }
+    }
+
 	void Update () {
 		if (!error) {
 			#region customizeInputsValues
@@ -292,7 +320,9 @@ public class MSSceneControllerFree : MonoBehaviour {
 			}
 			#endregion
 
-			vehicleCode = vehicles [currentVehicle].GetComponent<MSVehicleControllerFree> ();
+			ShowEnterCarButton();
+
+            vehicleCode = vehicles [currentVehicle].GetComponent<MSVehicleControllerFree> ();
 			EnableOrDisableButtons (vehicleCode.isInsideTheCar);
 
 			if (Input.GetKeyDown (controls.reloadScene) && controls.enable_reloadScene_Input) {
@@ -315,7 +345,7 @@ public class MSSceneControllerFree : MonoBehaviour {
 						if (player) {
 							player.SetActive (true);
 							if (vehicleCode.doorPosition[0].transform.position != vehicles [currentVehicle].transform.position) {
-								player.transform.position = vehicleCode.doorPosition[0].transform.position;
+								player.transform.position = vehicleCode.doorPosition[0].transform.position - Vector3.up * 1.45f;
 							} else {
 								player.transform.position = vehicleCode.doorPosition[0].transform.position + Vector3.up * 3.0f;
 							}
@@ -475,9 +505,9 @@ public class MSSceneControllerFree : MonoBehaviour {
 		switch (selectControls) {
 		case ControlTypeFree.mobileButton:
 			//enter and exit
-			if (enterAndExitButton) {
-				enterAndExitButton.gameObject.SetActive (true);
-			}
+			//if (enterAndExitButton) {
+			//	enterAndExitButton.gameObject.SetActive (true);
+			//}
 			//camera switch e joystick camera
 			if (cameraMobileButton) {
 				cameraMobileButton.gameObject.SetActive (insideInCar);

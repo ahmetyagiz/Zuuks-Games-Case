@@ -5,30 +5,41 @@ using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.UI;
 
-public class DebugCarAnimationManager : MonoBehaviour
+public class CarAnimationManager : MonoBehaviour
 {
     private Animator animator;
-    public CharacterController characterController;
-    public float cancelLeftHandRigDelay;
-    public float activateLeftHandRigDelay;
-    public Rig leftHandRig;
-    public Animator carDoorAnimator;
-    public Transform CarDriveTarget;
-    public Transform EnterKenarTarget;
-    public Transform EnterCarPoint;
-    public TwoBoneIKConstraint twoBoneIKConstraint;
-    public Transform nextTarget; //sonraki tutacaðý nokta
-    public RigBuilder rigBuilder;
-    public bool moveToSeat;
-    public ThirdPersonController thirdPersonController;
-    public Button enterAndExitButton;
+    private CharacterController characterController;
+    private ThirdPersonController thirdPersonController;
+
+    [Header("Scene Controllers")]
     [SerializeField] private MSSceneControllerFree mSSceneControllerFree;
     [SerializeField] private PlayerUIVisibilityManager mPlayerUIVisibilityManager;
+
+    [Header("Animation Timing")]
+    [SerializeField] private float cancelLeftHandRigDelay = 0.05f;
+    [SerializeField] private float activateLeftHandRigDelay = 0.3f;
+
+    [Header("Animation Rigging")]
+    [SerializeField] private Rig leftHandRig;
+    [SerializeField] private Animator carDoorAnimator;
+    [SerializeField] private Transform CarDriveTarget;
+    [SerializeField] private Transform EnterKenarTarget;
+    [SerializeField] private Transform EnterCarPoint;
+    [SerializeField] private TwoBoneIKConstraint twoBoneIKConstraint;
+    [SerializeField] private Transform nextTarget; //sonraki tutacaðý nokta
+    [SerializeField] private RigBuilder rigBuilder;
+
+    [Header("UI Elements")]
+    [SerializeField] private Button enterAndExitButton;
+
     internal bool isCharacterFullySeated;
+    internal bool moveToSeat;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
+        thirdPersonController = GetComponent<ThirdPersonController>();
         leftHandRig.weight = 0;
 
         InitCarEnterExitCheck();
@@ -125,10 +136,6 @@ public class DebugCarAnimationManager : MonoBehaviour
             if (moveToSeat)
             {
                 Invoke(nameof(MoveToSeat), 0.5f);
-            }
-            else
-            {
-
             }
         });
     }

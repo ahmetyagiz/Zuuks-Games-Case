@@ -6,7 +6,7 @@ public class PlayerUIVisibilityManager : MonoBehaviour
     [SerializeField] private GameObject starterAssetsInputsCanvas;
     [SerializeField] private Button enterAndExitButton;
     [SerializeField] private MSSceneControllerFree mSSceneControllerFree;
-    [SerializeField] private DebugCarAnimationManager debugCarAnimationManager;
+    [SerializeField] private CarAnimationManager debugCarAnimationManager;
     private bool isShowPlayerUI;
 
     private void Start()

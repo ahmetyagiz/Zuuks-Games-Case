@@ -109,7 +109,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
-        public DebugCarAnimationManager debugCarAnimationManager;
+        public CarAnimationManager debugCarAnimationManager;
         public bool disableLook;
         private const float _threshold = 0.01f;
 

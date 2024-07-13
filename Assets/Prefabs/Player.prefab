@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 7913208533517439777}
   - component: {fileID: 4440387915629503917}
   - component: {fileID: 85905275967404509}
+  - component: {fileID: 4746582132659162750}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -369,6 +370,34 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4746582132659162750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85905275967404497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a25641d4890e4f49a54abc9908547da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 85905275967404507}
+  cancelLeftHandRigDelay: 0.05
+  activateLeftHandRigDelay: 0.3
+  leftHandRig: {fileID: 0}
+  carDoorAnimator: {fileID: 0}
+  CarDriveTarget: {fileID: 0}
+  EnterKenarTarget: {fileID: 0}
+  EnterCarPoint: {fileID: 0}
+  twoBoneIKConstraint: {fileID: 0}
+  nextTarget: {fileID: 0}
+  rigBuilder: {fileID: 0}
+  moveToSeat: 0
+  thirdPersonController: {fileID: 85905275967404506}
+  enterAndExitButton: {fileID: 0}
+  mSSceneControllerFree: {fileID: 0}
+  mPlayerUIVisibilityManager: {fileID: 0}
 --- !u!1 &195990078762700173
 GameObject:
   m_ObjectHideFlags: 0

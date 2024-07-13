@@ -128,7 +128,7 @@ public class MSSceneControllerFree : MonoBehaviour {
 	bool playerIsNull;
 
 	Vector2 vectorDirJoystick;
-	public DebugCarAnimationManager debugCarAnimationManager;
+	public CarAnimationManager debugCarAnimationManager;
     void Awake () {
 		error = false;
 		CheckEqualKeyCodes ();

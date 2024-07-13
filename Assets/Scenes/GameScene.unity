@@ -2280,7 +2280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1988957910}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DebugCarAnimationManager, Assembly-CSharp
         m_MethodName: CarExitAnimation
         m_Mode: 1
@@ -2911,34 +2911,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 915359612440185767}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1988957910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988957902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a25641d4890e4f49a54abc9908547da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterController: {fileID: 915359612440185785}
-  cancelLeftHandRigDelay: 0.05
-  activateLeftHandRigDelay: 0.3
-  leftHandRig: {fileID: 528698409}
-  carDoorAnimator: {fileID: 223866987}
-  CarDriveTarget: {fileID: 1533069870}
-  EnterKenarTarget: {fileID: 1428780707}
-  EnterCarPoint: {fileID: 449852436}
-  twoBoneIKConstraint: {fileID: 1944979398}
-  nextTarget: {fileID: 891792128}
-  rigBuilder: {fileID: 915359612440185780}
-  moveToSeat: 0
-  thirdPersonController: {fileID: 915359612440185789}
-  enterAndExitButton: {fileID: 114898689145158002}
-  mSSceneControllerFree: {fileID: 114377022518031032}
-  mPlayerUIVisibilityManager: {fileID: 224024572539505879}
 --- !u!1 &1990174904
 GameObject:
   m_ObjectHideFlags: 0
@@ -3023,7 +2995,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1988957910}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DebugCarAnimationManager, Assembly-CSharp
         m_MethodName: CarEnterAnimation
         m_Mode: 1
@@ -4195,7 +4167,7 @@ MonoBehaviour:
   mouseXInput: 0
   mouseYInput: 0
   mouseScrollWheelInput: 0
-  debugCarAnimationManager: {fileID: 1988957910}
+  debugCarAnimationManager: {fileID: 915359612440185790}
 --- !u!114 &114425525977868830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5081,7 +5053,7 @@ MonoBehaviour:
   starterAssetsInputsCanvas: {fileID: 915359612440185768}
   enterAndExitButton: {fileID: 114898689145158002}
   mSSceneControllerFree: {fileID: 114377022518031032}
-  debugCarAnimationManager: {fileID: 1988957910}
+  debugCarAnimationManager: {fileID: 915359612440185790}
 --- !u!224 &224077941468509428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5591,7 +5563,7 @@ PrefabInstance:
         type: 3}
       propertyPath: debugCarAnimationManager
       value: 
-      objectReference: {fileID: 1988957910}
+      objectReference: {fileID: 915359612440185790}
     - target: {fileID: 85905275967404507, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
       propertyPath: m_Enabled
@@ -5917,6 +5889,61 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: nextTarget
+      value: 
+      objectReference: {fileID: 891792128}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: rigBuilder
+      value: 
+      objectReference: {fileID: 915359612440185780}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: leftHandRig
+      value: 
+      objectReference: {fileID: 528698409}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: EnterCarPoint
+      value: 
+      objectReference: {fileID: 449852436}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: CarDriveTarget
+      value: 
+      objectReference: {fileID: 1533069870}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: carDoorAnimator
+      value: 
+      objectReference: {fileID: 223866987}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: EnterKenarTarget
+      value: 
+      objectReference: {fileID: 1428780707}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: enterAndExitButton
+      value: 
+      objectReference: {fileID: 114898689145158002}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: twoBoneIKConstraint
+      value: 
+      objectReference: {fileID: 1944979398}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: mSSceneControllerFree
+      value: 
+      objectReference: {fileID: 114377022518031032}
+    - target: {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: mPlayerUIVisibilityManager
+      value: 
+      objectReference: {fileID: 224024572539505879}
     - target: {fileID: 4771576568647858189, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
       propertyPath: m_Layer
@@ -6207,7 +6234,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 240
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4746582132659162750, guid: c648a5fea78c5ff42b49ac93b340ced9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c648a5fea78c5ff42b49ac93b340ced9, type: 3}
 --- !u!1 &915359612440185768 stripped
 GameObject:
@@ -6333,21 +6361,28 @@ MonoBehaviour:
   - m_Rig: {fileID: 528698409}
     m_Active: 1
   m_Effectors: []
---- !u!143 &915359612440185785 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 85905275967404507, guid: c648a5fea78c5ff42b49ac93b340ced9,
-    type: 3}
-  m_PrefabInstance: {fileID: 915359612440185767}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &915359612440185789 stripped
+--- !u!114 &915359612440185790
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 85905275967404506, guid: c648a5fea78c5ff42b49ac93b340ced9,
-    type: 3}
-  m_PrefabInstance: {fileID: 915359612440185767}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988957902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
+  m_Script: {fileID: 11500000, guid: dfe6bc5f6c6877f4ab64cb1b98ca01df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mSSceneControllerFree: {fileID: 114377022518031032}
+  mPlayerUIVisibilityManager: {fileID: 224024572539505879}
+  cancelLeftHandRigDelay: 0.05
+  activateLeftHandRigDelay: 0.3
+  leftHandRig: {fileID: 528698409}
+  carDoorAnimator: {fileID: 223866987}
+  CarDriveTarget: {fileID: 1533069870}
+  EnterKenarTarget: {fileID: 1428780707}
+  EnterCarPoint: {fileID: 449852436}
+  twoBoneIKConstraint: {fileID: 1944979398}
+  nextTarget: {fileID: 891792128}
+  rigBuilder: {fileID: 915359612440185780}
+  enterAndExitButton: {fileID: 114898689145158002}

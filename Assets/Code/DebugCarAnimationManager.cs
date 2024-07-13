@@ -97,6 +97,7 @@ public class DebugCarAnimationManager : MonoBehaviour
     void MoveToSeat()
     {
         transform.DOMove(CarDriveTarget.position, 3f);
+        transform.parent = CarDriveTarget;
     }
 
     void EnableHandWeight()
@@ -136,6 +137,7 @@ public class DebugCarAnimationManager : MonoBehaviour
 
     IEnumerator ExitCarRoutine()
     {
+        transform.parent = null;
         animator.SetTrigger("ExitCar");
         Invoke(nameof(OpenDoorTrigger), 1f);
         Invoke(nameof(EnableHandWeight), 0.1f);

@@ -2936,6 +2936,7 @@ MonoBehaviour:
   rigBuilder: {fileID: 915359612440185780}
   thirdPersonController: {fileID: 915359612440185789}
   enterAndExitButton: {fileID: 114898689145158002}
+  mSSceneControllerFree: {fileID: 114377022518031032}
 --- !u!1 &1990174904
 GameObject:
   m_ObjectHideFlags: 0

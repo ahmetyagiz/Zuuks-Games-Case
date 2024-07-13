@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -128,7 +127,7 @@ public class MSSceneControllerFree : MonoBehaviour {
 	bool playerIsNull;
 
 	Vector2 vectorDirJoystick;
-	public CarAnimationManager debugCarAnimationManager;
+	public CarAnimationManager carAnimationManager;
     void Awake () {
 		error = false;
 		CheckEqualKeyCodes ();
@@ -290,13 +289,36 @@ public class MSSceneControllerFree : MonoBehaviour {
             //Debug.Log("araca yakın değilim");
         }
     }
+    public Transform closestDoor = null;
+
+    public void FindClosestDoorTransform()
+	{
+        if (currentDistanceTemp > minDistance)
+        {
+			return;
+        }
+
+        float minDistanceToDoor = float.MaxValue;
+
+        // Aracın kapıları arasında en yakını bulun
+        foreach (var door in vehicleCode.doorPosition)
+        {
+            float distanceToDoor = Vector3.Distance(player.transform.position, door.transform.position);
+            if (distanceToDoor < minDistanceToDoor)
+            {
+                minDistanceToDoor = distanceToDoor;
+                closestDoor = door.transform;
+            }
+        }
+		//Debug.Log("En yakın kapı: " + closestDoor.name);
+    }
 
 	void Update () {
 		if (!error) {
 			#region customizeInputsValues
 			switch (selectControls) {
 			case ControlTypeFree.mobileButton:
-					if (debugCarAnimationManager.isCharacterFullySeated) {
+					if (carAnimationManager.isCharacterFullySeated) {
                         if (buttonLeft && buttonRight)
                         {
                             MSbuttonHorizontal = -buttonLeft.buttonInput + buttonRight.buttonInput;
@@ -326,7 +348,6 @@ public class MSSceneControllerFree : MonoBehaviour {
 			#endregion
 
 			ShowEnterCarButton();
-
             vehicleCode = vehicles [currentVehicle].GetComponent<MSVehicleControllerFree> ();
 			EnableOrDisableButtons (vehicleCode.isInsideTheCar);
 
@@ -434,7 +455,7 @@ public class MSSceneControllerFree : MonoBehaviour {
 			}
 			//
 			if (!playerIsNull) {
-				if (!debugCarAnimationManager.moveToSeat) {
+				if (!carAnimationManager.moveToSeat) {
 					EnableUI (false);
 				} else {
 					EnableUI (UIVisualizer);

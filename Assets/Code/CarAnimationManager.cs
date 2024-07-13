@@ -1,13 +1,20 @@
 using DG.Tweening;
 using StarterAssets;
 using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.UI;
 
 public class CarAnimationManager : MonoBehaviour
 {
+    /// <summary>
+    /// Önce kapýyý seçmeliyim sonra ilgili transformlarý almalýyým.
+    /// </summary>
     private Animator animator;
+    [SerializeField] private AnimatorController leftEnterAnimator;
+    [SerializeField] private AnimatorController rightEnterAnimator;
+
     private CharacterController characterController;
     private ThirdPersonController thirdPersonController;
 
@@ -15,25 +22,29 @@ public class CarAnimationManager : MonoBehaviour
     [SerializeField] private MSSceneControllerFree mSSceneControllerFree;
     [SerializeField] private PlayerUIVisibilityManager mPlayerUIVisibilityManager;
 
-    [Header("Animation Timing")]
-    [SerializeField] private float cancelLeftHandRigDelay = 0.05f;
-    [SerializeField] private float activateLeftHandRigDelay = 0.3f;
-
     [Header("Animation Rigging")]
     [SerializeField] private Rig leftHandRig;
-    [SerializeField] private Animator carDoorAnimator;
-    [SerializeField] private Transform CarDriveTarget;
-    [SerializeField] private Transform EnterKenarTarget;
-    [SerializeField] private Transform EnterCarPoint;
-    [SerializeField] private TwoBoneIKConstraint twoBoneIKConstraint;
-    [SerializeField] private Transform nextTarget; //sonraki tutacaðý nokta
     [SerializeField] private RigBuilder rigBuilder;
+    private Animator carDoorAnimator;
+    private Transform enterCarPoint;
+    [SerializeField] private Transform enterCarPointLeft;
+    [SerializeField] private Transform enterCarPointRight;
+    private Transform EnterKenarTarget;
+    [SerializeField] private Transform enterKenarTargetLeft;
+    [SerializeField] private Transform enterKenarTargetRight;
+    private Transform seatTransform;
+    [SerializeField] private Transform seatTransformLeft;
+    [SerializeField] private Transform seatTransformRight;
+    [SerializeField] private TwoBoneIKConstraint twoBoneIKConstraint;
+    private Transform handTarget;
+    private Transform nextTarget; //sonraki tutacaðý nokta
 
     [Header("UI Elements")]
     [SerializeField] private Button enterAndExitButton;
 
     internal bool isCharacterFullySeated;
     internal bool moveToSeat;
+    private Transform closestDoor;
 
     private void Start()
     {
@@ -57,9 +68,35 @@ public class CarAnimationManager : MonoBehaviour
         }
     }
 
+    void GetSelectedDoorTransforms()
+    {
+        mSSceneControllerFree.FindClosestDoorTransform();
+        this.closestDoor = mSSceneControllerFree.closestDoor;
+        carDoorAnimator = closestDoor.GetComponent<Animator>();
+
+        if (closestDoor.name == "door_FR")
+        {
+            animator.runtimeAnimatorController = rightEnterAnimator;
+            enterCarPoint = enterCarPointRight;
+            EnterKenarTarget = enterKenarTargetRight;
+            seatTransform = seatTransformRight;
+        }
+        else
+        {
+            animator.runtimeAnimatorController = leftEnterAnimator;
+            enterCarPoint = enterCarPointLeft;
+            EnterKenarTarget = enterKenarTargetLeft;
+            seatTransform = seatTransformLeft;
+        }
+
+        handTarget = closestDoor.GetChild(0).transform;
+        nextTarget = closestDoor.GetChild(1).transform;
+    }
+
     public void CarEnterAnimation()
     {
         //Debug.Log("Arabaya binme çalýþtý");
+        GetSelectedDoorTransforms();
         StartCoroutine(EnterCarRoutine());
         enterAndExitButton.onClick.RemoveAllListeners();
 
@@ -82,19 +119,20 @@ public class CarAnimationManager : MonoBehaviour
     #region Car Enter Animations
     IEnumerator EnterCarRoutine()
     {
+        twoBoneIKConstraint.data.target = handTarget;
+        rigBuilder.Build();
         thirdPersonController.disableLook = true;
         animator.applyRootMotion = true;
         characterController.enabled = false;
-        transform.position = EnterCarPoint.position;
-        Vector3 lookDir = new Vector3(EnterCarPoint.position.x, transform.position.y, EnterCarPoint.position.z);
-        transform.DOLookAt(lookDir, 0.5f);
+        transform.position = enterCarPoint.position;
+        transform.DOLookAt(handTarget.position, 0.5f, AxisConstraint.Y, Vector3.up);
         animator.SetTrigger("EnterCar");
         Invoke(nameof(OpenDoorTrigger), 1f);
         Invoke(nameof(EnableHandWeight), 0.1f);
         moveToSeat = true;
         Invoke(nameof(MoveToSide), 1.25f);
         Invoke(nameof(CloseDoorTrigger), 3.25f);
-        Invoke(nameof(NextTarget),2f);
+        Invoke(nameof(NextTarget), 2f);
         Invoke(nameof(DisableHandWeight), 1.75f);
         yield return null;
     }
@@ -111,12 +149,12 @@ public class CarAnimationManager : MonoBehaviour
 
     void MoveToSeat()
     {
-        transform.DOMove(CarDriveTarget.position, 2.75f).OnComplete(() =>
+        transform.DOMove(seatTransform.position, 2.75f).OnComplete(() =>
         {
-            isCharacterFullySeated = true;
+            transform.parent = seatTransform;
 
+            isCharacterFullySeated = true;
         });
-        transform.parent = CarDriveTarget;
     }
 
     void EnableHandWeight()
@@ -148,7 +186,7 @@ public class CarAnimationManager : MonoBehaviour
     }
     #endregion
 
-    #region
+    #region Car Exit Animations
 
     IEnumerator ExitCarRoutine()
     {
@@ -164,15 +202,15 @@ public class CarAnimationManager : MonoBehaviour
         Invoke(nameof(ActivatePlayerBehaviors), 4);
         yield return null;
     }
-    #endregion
 
     void ActivatePlayerBehaviors()
     {
         transform.parent = null;
         thirdPersonController.disableLook = false;
-        transform.position = EnterCarPoint.position;
+        transform.position = enterCarPoint.position;
         leftHandRig.weight = 0;
         animator.applyRootMotion = false;
         characterController.enabled = true;
     }
+    #endregion
 }

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 65a06051c7bd7a14c8a9ba6291f3d6b9
+guid: 9cc8cd971eceb9642a998ca37ce00ec2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: -5197107827436990398
-    second: Entering Car
+      74: -5081714376721290756
+    second: Exiting Car
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -27,7 +27,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -36,13 +36,13 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Entering Car
+      name: Exiting Car
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 164
+      lastFrame: 174
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: 90
       level: 0
       cycleOffset: 0
       loop: 0
@@ -72,10 +72,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0

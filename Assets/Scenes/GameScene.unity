@@ -5467,6 +5467,71 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mustang 1970
       objectReference: {fileID: 0}
+    - target: {fileID: 650112750466503034, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112750466503034, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112750466503035, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112750805284785, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112750805284785, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112750805284798, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751163268714, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751163268717, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751163268717, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751463177776, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751463177779, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751463177779, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751463177779, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.748
+      objectReference: {fileID: 0}
     - target: {fileID: 654569424966047013, guid: 6c600a1f5eac63348a1fc8a9905dad48,
         type: 3}
       propertyPath: m_RootOrder
@@ -5554,8 +5619,13 @@ PrefabInstance:
     - target: {fileID: 85905275967404506, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
       propertyPath: GroundLayers.m_Bits
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 85905275967404506, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: debugCarAnimationManager
+      value: 
+      objectReference: {fileID: 1988957910}
     - target: {fileID: 85905275967404507, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
       propertyPath: m_Enabled
@@ -5726,6 +5796,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2359964328507649016, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2359964328507649017, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5845,6 +5920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638015432928559313, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4638015432928559318, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}

@@ -23,6 +23,8 @@ public class DebugCarAnimationManager : MonoBehaviour
     public ThirdPersonController thirdPersonController;
     public Button enterAndExitButton;
     [SerializeField] private MSSceneControllerFree mSSceneControllerFree;
+    [SerializeField] private PlayerUIVisibilityManager mPlayerUIVisibilityManager;
+    internal bool isCharacterFullySeated;
 
     private void Start()
     {
@@ -51,6 +53,7 @@ public class DebugCarAnimationManager : MonoBehaviour
         enterAndExitButton.onClick.RemoveAllListeners();
 
         enterAndExitButton.onClick.AddListener(() => mSSceneControllerFree.Mobile_EnterAndExitVehicle());
+        enterAndExitButton.onClick.AddListener(() => mPlayerUIVisibilityManager.UIVisibility());
         enterAndExitButton.onClick.AddListener(() => CarExitAnimation());
     }
 
@@ -61,6 +64,7 @@ public class DebugCarAnimationManager : MonoBehaviour
         enterAndExitButton.onClick.RemoveAllListeners();
 
         enterAndExitButton.onClick.AddListener(() => mSSceneControllerFree.Mobile_EnterAndExitVehicle());
+        enterAndExitButton.onClick.AddListener(() => mPlayerUIVisibilityManager.UIVisibility());
         enterAndExitButton.onClick.AddListener(() => CarEnterAnimation());
     }
 
@@ -78,7 +82,7 @@ public class DebugCarAnimationManager : MonoBehaviour
         Invoke(nameof(EnableHandWeight), 0.1f);
         moveToSeat = true;
         Invoke(nameof(MoveToSide), 1.25f);
-        Invoke(nameof(CloseDoorTrigger), 3f);
+        Invoke(nameof(CloseDoorTrigger), 3.25f);
         Invoke(nameof(NextTarget),2f);
         Invoke(nameof(DisableHandWeight), 1.75f);
         yield return null;
@@ -96,7 +100,11 @@ public class DebugCarAnimationManager : MonoBehaviour
 
     void MoveToSeat()
     {
-        transform.DOMove(CarDriveTarget.position, 3f);
+        transform.DOMove(CarDriveTarget.position, 2.75f).OnComplete(() =>
+        {
+            isCharacterFullySeated = true;
+
+        });
         transform.parent = CarDriveTarget;
     }
 
@@ -137,7 +145,7 @@ public class DebugCarAnimationManager : MonoBehaviour
 
     IEnumerator ExitCarRoutine()
     {
-        transform.parent = null;
+        isCharacterFullySeated = false;
         animator.SetTrigger("ExitCar");
         Invoke(nameof(OpenDoorTrigger), 1f);
         Invoke(nameof(EnableHandWeight), 0.1f);
@@ -153,6 +161,7 @@ public class DebugCarAnimationManager : MonoBehaviour
 
     void ActivatePlayerBehaviors()
     {
+        transform.parent = null;
         thirdPersonController.disableLook = false;
         transform.position = EnterCarPoint.position;
         leftHandRig.weight = 0;

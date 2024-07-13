@@ -296,12 +296,17 @@ public class MSSceneControllerFree : MonoBehaviour {
 			#region customizeInputsValues
 			switch (selectControls) {
 			case ControlTypeFree.mobileButton:
-				if(buttonLeft && buttonRight){
-					MSbuttonHorizontal = -buttonLeft.buttonInput+buttonRight.buttonInput;
-				}
-				if(buttonUp && buttonDown){
-					MSbuttonVertical = -buttonDown.buttonInput+ buttonUp.buttonInput;
-				}
+					if (debugCarAnimationManager.isCharacterFullySeated) {
+                        if (buttonLeft && buttonRight)
+                        {
+                            MSbuttonHorizontal = -buttonLeft.buttonInput + buttonRight.buttonInput;
+                        }
+                        if (buttonUp && buttonDown)
+                        {
+                            MSbuttonVertical = -buttonDown.buttonInput + buttonUp.buttonInput;
+                        }
+                    }
+					
 				//if(joystickCamera){
 				//	mouseXInput = joystickCamera.joystickHorizontal;
 				//	mouseYInput = joystickCamera.joystickVertical;

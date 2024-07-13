@@ -2938,6 +2938,7 @@ MonoBehaviour:
   thirdPersonController: {fileID: 915359612440185789}
   enterAndExitButton: {fileID: 114898689145158002}
   mSSceneControllerFree: {fileID: 114377022518031032}
+  mPlayerUIVisibilityManager: {fileID: 224024572539505879}
 --- !u!1 &1990174904
 GameObject:
   m_ObjectHideFlags: 0

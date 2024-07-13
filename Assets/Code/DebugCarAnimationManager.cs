@@ -1,4 +1,5 @@
 using DG.Tweening;
+using StarterAssets;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -18,6 +19,7 @@ public class DebugCarAnimationManager : MonoBehaviour
     public Transform nextTarget; //sonraki tutacaðý nokta
     public RigBuilder rigBuilder;
     private bool moveToSeat;
+    public ThirdPersonController thirdPersonController;
 
     private void Start()
     {
@@ -38,6 +40,7 @@ public class DebugCarAnimationManager : MonoBehaviour
     #region Car Enter Animations
     IEnumerator EnterCarRoutine()
     {
+        thirdPersonController.disableLook = true;
         animator.applyRootMotion = true;
         characterController.enabled = false;
         transform.position = EnterCarPoint.position;
@@ -121,6 +124,7 @@ public class DebugCarAnimationManager : MonoBehaviour
 
     void ActivatePlayerBehaviors()
     {
+        thirdPersonController.disableLook = false;
         transform.position = EnterCarPoint.position;
         leftHandRig.weight = 0;
         animator.applyRootMotion = false;

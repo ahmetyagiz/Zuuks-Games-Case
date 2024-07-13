@@ -3338,6 +3338,7 @@ MonoBehaviour:
   twoBoneIKConstraint: {fileID: 1944979398}
   nextTarget: {fileID: 891792128}
   rigBuilder: {fileID: 915359612440185780}
+  thirdPersonController: {fileID: 915359612440185789}
 --- !u!1 &1990174904
 GameObject:
   m_ObjectHideFlags: 0
@@ -6616,3 +6617,15 @@ CharacterController:
     type: 3}
   m_PrefabInstance: {fileID: 915359612440185767}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &915359612440185789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 85905275967404506, guid: c648a5fea78c5ff42b49ac93b340ced9,
+    type: 3}
+  m_PrefabInstance: {fileID: 915359612440185767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988957902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

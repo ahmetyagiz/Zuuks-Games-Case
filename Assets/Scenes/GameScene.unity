@@ -2229,7 +2229,7 @@ RectTransform:
   m_Children:
   - {fileID: 682233890}
   m_Father: {fileID: 915359612440185769}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2935,6 +2935,7 @@ MonoBehaviour:
   nextTarget: {fileID: 891792128}
   rigBuilder: {fileID: 915359612440185780}
   thirdPersonController: {fileID: 915359612440185789}
+  enterAndExitButton: {fileID: 114898689145158002}
 --- !u!1 &1990174904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,7 +2969,7 @@ RectTransform:
   m_Children:
   - {fileID: 2057430261}
   m_Father: {fileID: 915359612440185769}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5076,6 +5077,7 @@ MonoBehaviour:
   starterAssetsInputsCanvas: {fileID: 915359612440185768}
   enterAndExitButton: {fileID: 114898689145158002}
   mSSceneControllerFree: {fileID: 114377022518031032}
+  debugCarAnimationManager: {fileID: 1988957910}
 --- !u!224 &224077941468509428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6004,6 +6006,11 @@ PrefabInstance:
     - target: {fileID: 5551319067472798124, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567383535335917325, guid: c648a5fea78c5ff42b49ac93b340ced9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5612206113917489565, guid: c648a5fea78c5ff42b49ac93b340ced9,

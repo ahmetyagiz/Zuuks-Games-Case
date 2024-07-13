@@ -232,6 +232,8 @@ MonoBehaviour:
   LockCameraPosition: 0
   touchController: {fileID: 0}
   cameraSpeed: 25
+  debugCarAnimationManager: {fileID: 0}
+  disableLook: 0
 --- !u!114 &7913208533517439777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,7 +532,7 @@ RectTransform:
   m_Children:
   - {fileID: 8602768827110772219}
   m_Father: {fileID: 445736912744240603}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2572,13 +2574,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2251107321687293150}
-  m_Father: {fileID: 445736912744240603}
+  m_Father: {fileID: 3762529298026370942}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5000005, y: 191.8392}
-  m_SizeDelta: {x: 13, y: 369.07834}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_SizeDelta: {x: -80, y: -59.99997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1408163901445607445
 CanvasRenderer:
@@ -3117,6 +3119,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5567383535335917325}
   - {fileID: 445736912744240603}
   m_Father: {fileID: 1287737356253006081}
   m_RootOrder: 3
@@ -3277,12 +3280,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5567383535335917325}
   - {fileID: 9027465256861478540}
   - {fileID: 4576186569700205832}
   - {fileID: 4992926534865474058}
   m_Father: {fileID: 3762529298026370942}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3990,7 +3992,7 @@ RectTransform:
   m_Children:
   - {fileID: 984245294459681529}
   m_Father: {fileID: 445736912744240603}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -4173,7 +4175,7 @@ RectTransform:
   m_Children:
   - {fileID: 4803641381311382066}
   m_Father: {fileID: 445736912744240603}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

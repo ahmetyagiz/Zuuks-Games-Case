@@ -3,6 +3,7 @@ using StarterAssets;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.UI;
 
 public class DebugCarAnimationManager : MonoBehaviour
 {
@@ -20,21 +21,47 @@ public class DebugCarAnimationManager : MonoBehaviour
     public RigBuilder rigBuilder;
     private bool moveToSeat;
     public ThirdPersonController thirdPersonController;
+    public Button enterAndExitButton;
+    [SerializeField] private MSSceneControllerFree mSSceneControllerFree;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         leftHandRig.weight = 0;
+
+        InitCarEnterExitCheck();
+    }
+
+    public void InitCarEnterExitCheck()
+    {
+        if (mSSceneControllerFree.startInPlayer)
+        {
+            enterAndExitButton.onClick.AddListener(() => CarEnterAnimation());
+        }
+        else
+        {
+            enterAndExitButton.onClick.AddListener(() => CarExitAnimation());
+        }
     }
 
     public void CarEnterAnimation()
     {
+        //Debug.Log("Arabaya binme çalýþtý");
         StartCoroutine(EnterCarRoutine());
+        enterAndExitButton.onClick.RemoveAllListeners();
+
+        enterAndExitButton.onClick.AddListener(() => mSSceneControllerFree.Mobile_EnterAndExitVehicle());
+        enterAndExitButton.onClick.AddListener(() => CarExitAnimation());
     }
 
     public void CarExitAnimation()
     {
+        //Debug.Log("Arabadan inme çalýþtý");
         StartCoroutine(ExitCarRoutine());
+        enterAndExitButton.onClick.RemoveAllListeners();
+
+        enterAndExitButton.onClick.AddListener(() => mSSceneControllerFree.Mobile_EnterAndExitVehicle());
+        enterAndExitButton.onClick.AddListener(() => CarEnterAnimation());
     }
 
     #region Car Enter Animations

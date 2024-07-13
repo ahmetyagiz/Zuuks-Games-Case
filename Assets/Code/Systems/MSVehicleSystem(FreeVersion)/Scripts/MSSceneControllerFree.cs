@@ -342,14 +342,14 @@ public class MSSceneControllerFree : MonoBehaviour {
 				if (vehicles.Length <= 1) {
 					if (vehicleCode.isInsideTheCar) {
 						vehicleCode.ExitTheVehicle ();
-						if (player) {
-							player.SetActive (true);
-							if (vehicleCode.doorPosition[0].transform.position != vehicles [currentVehicle].transform.position) {
-								player.transform.position = vehicleCode.doorPosition[0].transform.position - Vector3.up * 1.45f;
-							} else {
-								player.transform.position = vehicleCode.doorPosition[0].transform.position + Vector3.up * 3.0f;
-							}
-						}
+						//if (player) {
+						//	player.SetActive (true);
+						//	if (vehicleCode.doorPosition[0].transform.position != vehicles [currentVehicle].transform.position) {
+						//		player.transform.position = vehicleCode.doorPosition[0].transform.position - Vector3.up * 1.45f;
+						//	} else {
+						//		player.transform.position = vehicleCode.doorPosition[0].transform.position + Vector3.up * 3.0f;
+						//	}
+						//}
 						blockedInteraction = true;
 						enterAndExitBool = false;
 						StartCoroutine ("WaitToInteract");
@@ -363,9 +363,9 @@ public class MSSceneControllerFree : MonoBehaviour {
 						}
 						if (currentDistanceTemp < minDistance) {
 							vehicleCode.EnterInVehicle ();
-							if (player) {
-								player.SetActive (false);
-							}
+							//if (player) {
+							//	player.SetActive (false);
+							//}
 							blockedInteraction = true;
 							enterAndExitBool = false;
 							StartCoroutine ("WaitToInteract");
@@ -392,14 +392,14 @@ public class MSSceneControllerFree : MonoBehaviour {
 					
 					if (vehicleCode.isInsideTheCar) {
 						vehicleCode.ExitTheVehicle ();
-						if (player) {
-							player.SetActive (true);
-							if (vehicleCode.doorPosition[0].transform.position != vehicles [currentVehicle].transform.position) {
-								player.transform.position = vehicleCode.doorPosition[0].transform.position;
-							} else {
-								player.transform.position = vehicleCode.doorPosition[0].transform.position + Vector3.up * 3.0f;
-							}
-						}
+						//if (player) {
+						//	player.SetActive (true);
+						//	if (vehicleCode.doorPosition[0].transform.position != vehicles [currentVehicle].transform.position) {
+						//		player.transform.position = vehicleCode.doorPosition[0].transform.position;
+						//	} else {
+						//		player.transform.position = vehicleCode.doorPosition[0].transform.position + Vector3.up * 3.0f;
+						//	}
+						//}
 						blockedInteraction = true;
 						enterAndExitBool = false;
 						StartCoroutine ("WaitToInteract");
@@ -415,9 +415,9 @@ public class MSSceneControllerFree : MonoBehaviour {
 						if (proximityDistanceTemp < minDistance) {
 							currentVehicle = proximityObjectIndex;
 							vehicles [currentVehicle].GetComponent<MSVehicleControllerFree> ().EnterInVehicle ();
-							if (player) {
-								player.SetActive (false);
-							}
+							//if (player) {
+							//	player.SetActive (false);
+							//}
 							blockedInteraction = true;
 							enterAndExitBool = false;
 							StartCoroutine ("WaitToInteract");
@@ -577,7 +577,7 @@ public class MSSceneControllerFree : MonoBehaviour {
 		}
 	}
 
-	void Mobile_EnterAndExitVehicle(){
+	public void Mobile_EnterAndExitVehicle(){
 		if (!error && !enterAndExitBool) {
 			enterAndExitBool = true;
 		}

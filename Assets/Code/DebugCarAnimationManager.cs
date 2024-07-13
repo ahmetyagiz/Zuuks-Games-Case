@@ -19,7 +19,7 @@ public class DebugCarAnimationManager : MonoBehaviour
     public TwoBoneIKConstraint twoBoneIKConstraint;
     public Transform nextTarget; //sonraki tutacaðý nokta
     public RigBuilder rigBuilder;
-    private bool moveToSeat;
+    public bool moveToSeat;
     public ThirdPersonController thirdPersonController;
     public Button enterAndExitButton;
     [SerializeField] private MSSceneControllerFree mSSceneControllerFree;

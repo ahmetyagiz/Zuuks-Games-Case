@@ -128,8 +128,8 @@ public class MSSceneControllerFree : MonoBehaviour {
 	bool playerIsNull;
 
 	Vector2 vectorDirJoystick;
-
-	void Awake () {
+	public DebugCarAnimationManager debugCarAnimationManager;
+    void Awake () {
 		error = false;
 		CheckEqualKeyCodes ();
 		MSSceneControllerFree[] sceneControllers = FindObjectsOfType(typeof(MSSceneControllerFree)) as MSSceneControllerFree[];
@@ -429,7 +429,7 @@ public class MSSceneControllerFree : MonoBehaviour {
 			}
 			//
 			if (!playerIsNull) {
-				if (player.gameObject.activeInHierarchy) {
+				if (!debugCarAnimationManager.moveToSeat) {
 					EnableUI (false);
 				} else {
 					EnableUI (UIVisualizer);

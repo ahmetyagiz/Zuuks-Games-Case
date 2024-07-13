@@ -1,45 +1,32 @@
-﻿Shader "MSVehicleSystem/SkidMarks" {
+﻿Shader "Skidmarks" {
 	Properties {
-		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-		_NormalMap("NormalMap", 2D) = "bump" {}
-		_Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
-        _NormFactor ("Normal Strength", Range (0,1)) = 1
+		_Color("Main Color", Color) = (1,1,1,1)
+		_MainTex("Base (RGB) Trans (A)", 2D) = "white" {}
 	}
-	SubShader {
-		Tags { 
-			"Queue"="Transparent" 
-    		"RenderType"="Transparent"
-		}
+
+	Category {
+		Offset -4, -4
 		ZWrite Off
-		Blend OneMinusDstColor One
-		LOD 200
-		CGPROGRAM
-		#pragma surface surf Standard fullforwardshadows alpha:fade
-        #pragma target 3.0
+		Alphatest Greater 0
+		Tags{ "Queue" = "Transparent"  "RenderType" = "Transparent" }
 
-		sampler2D _MainTex;
-		sampler2D _NormalMap;
-		half _NormFactor;
-
-		struct Input {
-			float2 uv_MainTex;
-			float2 uv_NormalMap;
-            float4 colorr: COLOR; 
-		};
-
-		half _Glossiness;
-		half _Metallic;
-
-		void surf (Input IN, inout SurfaceOutputStandard o) {
-			half4 c = tex2D (_MainTex, IN.uv_MainTex) * IN.colorr;
-			o.Albedo = c.rgb * IN.colorr.rgb;;
-			o.Normal = UnpackScaleNormal (tex2D (_NormalMap, IN.uv_NormalMap),_NormFactor);
-			o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness; 
-			o.Alpha = c.a * IN.colorr.a;
+		SubShader{
+			ColorMaterial AmbientAndDiffuse
+			Lighting Off
+			Blend SrcAlpha OneMinusSrcAlpha
+			Pass{
+				ColorMask RGBA
+				SetTexture[_MainTex]{
+					Combine texture, texture * primary
+				}
+				SetTexture[_MainTex]{
+					Combine primary * previous
+				}
+			}
 		}
-		ENDCG
 	}
-	FallBack "Diffuse"
+
+	// Fallback to Alpha Vertex Lit
+	Fallback "Transparent/VertexLit", 2
+
 }

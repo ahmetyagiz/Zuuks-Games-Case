@@ -201,8 +201,9 @@ namespace StarterAssets
 
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition && Input.touchCount > 0)
             {
-                _cinemachineTargetYaw += Input.GetTouch(touchController.myTouchCount).deltaPosition.x * Time.deltaTime * cameraSpeed;
-                _cinemachineTargetPitch -= Input.GetTouch(touchController.myTouchCount).deltaPosition.y * Time.deltaTime * cameraSpeed;
+                int touchIndex = Mathf.Clamp(touchController.myTouchCount, 0, Input.touchCount - 1);
+                _cinemachineTargetYaw += Input.GetTouch(touchIndex).deltaPosition.x * Time.deltaTime * cameraSpeed;
+                _cinemachineTargetPitch -= Input.GetTouch(touchIndex).deltaPosition.y * Time.deltaTime * cameraSpeed;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -213,6 +214,7 @@ namespace StarterAssets
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
         }
+
 
         private void Move()
         {

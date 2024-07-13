@@ -779,6 +779,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1333871242}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &449852435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449852436}
+  m_Layer: 6
+  m_Name: CarEnterPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449852436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449852435}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2.4909096, y: -1.0727272, z: -1.0245453}
+  m_LocalScale: {x: 0.9090907, y: 0.9090909, z: 0.9090907}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1413567935}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &484408431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6692616704207676010, guid: 5b7601361e8b568479838ce82b7809d7,
@@ -3296,12 +3327,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a25641d4890e4f49a54abc9908547da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterController: {fileID: 915359612440185785}
   cancelLeftHandRigDelay: 0.05
   activateLeftHandRigDelay: 0.3
   leftHandRig: {fileID: 528698409}
   carDoorAnimator: {fileID: 223866987}
   CarDriveTarget: {fileID: 1533069870}
   EnterKenarTarget: {fileID: 1428780707}
+  EnterCarPoint: {fileID: 449852436}
   twoBoneIKConstraint: {fileID: 1944979398}
   nextTarget: {fileID: 891792128}
   rigBuilder: {fileID: 915359612440185780}
@@ -5854,7 +5887,7 @@ PrefabInstance:
     - target: {fileID: 85905275967404507, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 195990078762700173, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
@@ -6284,7 +6317,7 @@ PrefabInstance:
     - target: {fileID: 6672872420469373201, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6730071801754359175, guid: c648a5fea78c5ff42b49ac93b340ced9,
         type: 3}
@@ -6577,3 +6610,9 @@ MonoBehaviour:
   - m_Rig: {fileID: 528698409}
     m_Active: 1
   m_Effectors: []
+--- !u!143 &915359612440185785 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 85905275967404507, guid: c648a5fea78c5ff42b49ac93b340ced9,
+    type: 3}
+  m_PrefabInstance: {fileID: 915359612440185767}
+  m_PrefabAsset: {fileID: 0}

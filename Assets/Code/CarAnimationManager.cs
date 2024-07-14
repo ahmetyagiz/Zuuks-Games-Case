@@ -45,6 +45,7 @@ public class CarAnimationManager : MonoBehaviour
     internal bool isCharacterFullySeated;
     internal bool moveToSeat;
     private Transform closestDoor;
+    private bool seatChanging;
 
     private void Start()
     {
@@ -119,13 +120,14 @@ public class CarAnimationManager : MonoBehaviour
     #region Car Enter Animations
     IEnumerator EnterCarRoutine()
     {
+        seatChanging = false;
         twoBoneIKConstraint.data.target = handTarget;
         rigBuilder.Build();
         thirdPersonController.disableLook = true;
         animator.applyRootMotion = true;
         characterController.enabled = false;
         transform.position = enterCarPoint.position;
-        transform.DOLookAt(handTarget.position, 0.5f, AxisConstraint.Y, Vector3.up);
+        transform.DOLookAt(handTarget.position, 0.01f, AxisConstraint.Y, Vector3.up);
         animator.SetTrigger("EnterCar");
         Invoke(nameof(OpenDoorTrigger), 1f);
         Invoke(nameof(EnableHandWeight), 0.1f);
@@ -155,6 +157,7 @@ public class CarAnimationManager : MonoBehaviour
             {
                 transform.DOJump(seatTransformLeft.position, 0.13f, 2, 1.25f).SetEase(Ease.Linear).OnComplete(() =>
                 {
+                    seatChanging = true;
                     isCharacterFullySeated = true;
                     transform.parent = seatTransformRight;
                 });
@@ -200,6 +203,10 @@ public class CarAnimationManager : MonoBehaviour
 
     IEnumerator ExitCarRoutine()
     {
+        if (seatChanging == true)
+        {
+            transform.DOLookAt(handTarget.position, 0.5f, AxisConstraint.Y, Vector3.up);
+        }
         GetSelectedDoorTransforms();
         isCharacterFullySeated = false;
         animator.SetTrigger("ExitCar");

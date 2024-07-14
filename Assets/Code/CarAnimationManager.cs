@@ -151,9 +151,19 @@ public class CarAnimationManager : MonoBehaviour
     {
         transform.DOMove(seatTransform.position, 2.75f).OnComplete(() =>
         {
-            transform.parent = seatTransform;
-
-            isCharacterFullySeated = true;
+            if (closestDoor.name == "door_FR")
+            {
+                transform.DOJump(seatTransformLeft.position, 0.13f, 2, 1.25f).SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    isCharacterFullySeated = true;
+                    transform.parent = seatTransformRight;
+                });
+            }
+            else
+            {
+                isCharacterFullySeated = true;
+                transform.parent = seatTransform;
+            }
         });
     }
 

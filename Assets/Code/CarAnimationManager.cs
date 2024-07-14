@@ -1,6 +1,5 @@
 using DG.Tweening;
 using StarterAssets;
-using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -75,6 +74,10 @@ public class CarAnimationManager : MonoBehaviour
         }
     }
 
+    void EnterExitButtonInteractable(bool block)
+    {
+        enterAndExitButton.interactable = block;
+    }
     void AddEventListeners(string enterOrExitCar)
     {
         enterAndExitButton.onClick.RemoveAllListeners();
@@ -102,7 +105,7 @@ public class CarAnimationManager : MonoBehaviour
             enterCarPoint = enterCarPointRight;
             EnterKenarTarget = enterKenarTargetRight;
             seatTransform = seatTransformRight;
-            DOTween.To(() => leftTwoBoneIKConstraint.weight, x => leftTwoBoneIKConstraint.weight = x, 0f, 1).SetEase(Ease.OutSine);
+            DOTween.To(() => leftTwoBoneIKConstraint.weight, x => leftTwoBoneIKConstraint.weight = x, 0f, 1).SetEase(Ease.InSine);
             DOTween.To(() => rightTwoBoneIKConstraint.weight, x => rightTwoBoneIKConstraint.weight = x, 1f, 1).SetEase(Ease.OutSine);
             selectedTwoBoneIK = rightTwoBoneIKConstraint;
         }
@@ -113,7 +116,7 @@ public class CarAnimationManager : MonoBehaviour
             EnterKenarTarget = enterKenarTargetLeft;
             seatTransform = seatTransformLeft;
             DOTween.To(() => leftTwoBoneIKConstraint.weight, x => leftTwoBoneIKConstraint.weight = x, 1f, 1).SetEase(Ease.OutSine);
-            DOTween.To(() => rightTwoBoneIKConstraint.weight, x => rightTwoBoneIKConstraint.weight = x, 0f, 1).SetEase(Ease.OutSine);
+            DOTween.To(() => rightTwoBoneIKConstraint.weight, x => rightTwoBoneIKConstraint.weight = x, 0f, 1).SetEase(Ease.InSine);
             selectedTwoBoneIK = leftTwoBoneIKConstraint;
         }
 
@@ -125,19 +128,21 @@ public class CarAnimationManager : MonoBehaviour
     public void CarEnterAnimation()
     {
         GetSelectedDoorTransforms();
-        StartCoroutine(EnterCarRoutine());
+        EnterCarRoutine();
         AddEventListeners("CarExit");
+        EnterExitButtonInteractable(false);
     }
 
     public void CarExitAnimation()
     {
         GetSelectedDoorTransforms();
-        StartCoroutine(ExitCarRoutine());
+        ExitCarRoutine();
         AddEventListeners("CarEnter");
+        EnterExitButtonInteractable(false);
     }
 
     #region Car Enter Animations
-    IEnumerator EnterCarRoutine()
+    void EnterCarRoutine()
     {
         seatChanging = false;
         selectedTwoBoneIK.data.target = handDoorTarget;
@@ -154,7 +159,6 @@ public class CarAnimationManager : MonoBehaviour
         Invoke(nameof(CloseDoorTrigger), 3.25f);
         Invoke(nameof(NextTarget), 2f);
         Invoke(nameof(DisableHandWeight), 2.25f);
-        yield return null;
     }
 
     void OpenDoorTrigger()
@@ -179,13 +183,15 @@ public class CarAnimationManager : MonoBehaviour
                 {
                     seatChanging = true;
                     isCharacterFullySeated = true;
+                    EnterExitButtonInteractable(true);
                     transform.parent = seatTransformRight;
-                    //transform.DOLookAt(handDoorTarget.position, 0.01f, AxisConstraint.Y, Vector3.up);
+                    transform.DOLookAt(-handDoorTarget.position, 0.01f, AxisConstraint.Y, Vector3.up);
                 });
             }
             else
             {
                 isCharacterFullySeated = true;
+                EnterExitButtonInteractable(true);
                 Invoke(nameof(UseSteerWheelAnimation), 0.75f);
                 transform.parent = seatTransform;
             }
@@ -213,7 +219,7 @@ public class CarAnimationManager : MonoBehaviour
 
     #region Car Exit Animations
 
-    IEnumerator ExitCarRoutine()
+    void ExitCarRoutine()
     {
         if (seatChanging == true)
         {
@@ -230,8 +236,6 @@ public class CarAnimationManager : MonoBehaviour
         Invoke(nameof(MoveToSide), 2.75f);
         Invoke(nameof(CloseDoorTrigger), 3f);
         Invoke(nameof(ActivatePlayerBehaviors), 4.6f);
-
-        yield return null;
     }
 
     void EnableHandWeight()
@@ -246,6 +250,7 @@ public class CarAnimationManager : MonoBehaviour
 
     void ActivatePlayerBehaviors()
     {
+        EnterExitButtonInteractable(true);
         transform.parent = null;
         leftTwoBoneIKConstraint.weight = 0f;
         rightTwoBoneIKConstraint.weight = 0f;

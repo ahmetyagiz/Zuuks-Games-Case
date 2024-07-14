@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Linq;
 using System;
+using TMPro;
 
 [Serializable]
 public class ControlsFree {
@@ -86,11 +87,11 @@ public class MSSceneControllerFree : MonoBehaviour {
 	//
 	Button nextVehicle;
 	Button previousVehicle;
-	Text gearText;
-	Text kmhText;
-	Text mphText;
-	Text handBrakeText;
-	Text pauseText;
+	TextMeshProUGUI gearText;
+	TextMeshProUGUI kmhText;
+	TextMeshProUGUI mphText;
+	TextMeshProUGUI handBrakeText;
+	TextMeshProUGUI pauseText;
 	Image backGround;
 
 	#region customizeInputs
@@ -116,7 +117,7 @@ public class MSSceneControllerFree : MonoBehaviour {
 	bool enterAndExitBool;
 	string sceneName;
 
-	MSVehicleControllerFree vehicleCode;
+	[HideInInspector] public MSVehicleControllerFree vehicleCode;
 	MSVehicleControllerFree controllerTemp;
 	float currentDistanceTemp;
 	float proximityDistanceTemp;
@@ -183,11 +184,11 @@ public class MSSceneControllerFree : MonoBehaviour {
 
 			nextVehicle = transform.Find ("Canvas/nextVehicle").GetComponent<Button> ();
 			previousVehicle = transform.Find ("Canvas/previousVehicle").GetComponent<Button> ();
-			gearText = transform.Find ("Canvas/Strings/gearText").GetComponent<Text> ();
-			kmhText = transform.Find ("Canvas/Strings/kmhText").GetComponent<Text> ();
-			mphText = transform.Find ("Canvas/Strings/mphText").GetComponent<Text> ();
-			handBrakeText = transform.Find ("Canvas/Strings/handBrakeText").GetComponent<Text> ();
-			pauseText = transform.Find ("Canvas/Strings/pauseText").GetComponent<Text> ();
+			gearText = transform.Find ("Canvas/Strings/gearText").GetComponent<TextMeshProUGUI> ();
+			kmhText = transform.Find ("Canvas/Strings/kmhText").GetComponent<TextMeshProUGUI> ();
+			mphText = transform.Find ("Canvas/Strings/mphText").GetComponent<TextMeshProUGUI> ();
+			handBrakeText = transform.Find ("Canvas/Strings/handBrakeText").GetComponent<TextMeshProUGUI> ();
+			pauseText = transform.Find ("Canvas/Strings/pauseText").GetComponent<TextMeshProUGUI> ();
 			backGround = transform.Find ("Canvas/Strings").GetComponent<Image> ();
 			//end transform.find
 
@@ -483,8 +484,8 @@ public class MSSceneControllerFree : MonoBehaviour {
 
 	void EnableUI(bool enable){
 		if (nextVehicle.gameObject.activeSelf != enable) {
-			nextVehicle.gameObject.SetActive(enable);
-			previousVehicle.gameObject.SetActive (enable);
+			//nextVehicle.gameObject.SetActive(enable);
+			//previousVehicle.gameObject.SetActive (enable);
 			gearText.gameObject.SetActive (enable);
 			kmhText.gameObject.SetActive (enable);
 			mphText.gameObject.SetActive (enable);

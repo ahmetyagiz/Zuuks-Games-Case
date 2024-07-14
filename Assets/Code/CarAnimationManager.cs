@@ -185,7 +185,6 @@ public class CarAnimationManager : MonoBehaviour
                     isCharacterFullySeated = true;
                     EnterExitButtonInteractable(true);
                     transform.parent = seatTransformRight;
-                    transform.DOLookAt(-handDoorTarget.position, 0.01f, AxisConstraint.Y, Vector3.up);
                 });
             }
             else
@@ -223,8 +222,7 @@ public class CarAnimationManager : MonoBehaviour
     {
         if (seatChanging == true)
         {
-            Vector3 lookDir = new Vector3(handDoorTarget.position.x, transform.position.y, handDoorTarget.position.z);
-            transform.LookAt(-lookDir);
+            transform.DOLookAt(-handDoorTarget.position, 0.01f, AxisConstraint.Y);
         }
         selectedTwoBoneIK.data.target = handDoorTarget;
         rigBuilder.Build();
@@ -255,7 +253,7 @@ public class CarAnimationManager : MonoBehaviour
         leftTwoBoneIKConstraint.weight = 0f;
         rightTwoBoneIKConstraint.weight = 0f;
         thirdPersonController.disableLook = false;
-        transform.position = enterCarPoint.position;
+        transform.DOMove(enterCarPoint.position, 0.5f);
         animator.applyRootMotion = false;
         characterController.enabled = true;
     }

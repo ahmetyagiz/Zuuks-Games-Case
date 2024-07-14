@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 435240717}
   - component: {fileID: 435240716}
   m_Layer: 0
-  m_Name: DebugHandNextTarget
+  m_Name: RightDoorNextTarget
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 795776555}
   - component: {fileID: 795776554}
   m_Layer: 0
-  m_Name: DebugHandTarget
+  m_Name: RightDoorTarget
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1255,7 +1255,7 @@ GameObject:
   - component: {fileID: 650112750606819023}
   - component: {fileID: 650112750606819022}
   m_Layer: 0
-  m_Name: DebugHandTarget
+  m_Name: LeftDoorTarget
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2038,7 +2038,7 @@ GameObject:
   - component: {fileID: 650112751856051845}
   - component: {fileID: 650112751856051844}
   m_Layer: 0
-  m_Name: DebugHandNextTarget
+  m_Name: LeftDoorNextTarget
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

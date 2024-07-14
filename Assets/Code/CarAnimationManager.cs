@@ -200,6 +200,7 @@ public class CarAnimationManager : MonoBehaviour
 
     IEnumerator ExitCarRoutine()
     {
+        GetSelectedDoorTransforms();
         isCharacterFullySeated = false;
         animator.SetTrigger("ExitCar");
         Invoke(nameof(OpenDoorTrigger), 1f);
@@ -209,7 +210,7 @@ public class CarAnimationManager : MonoBehaviour
         Invoke(nameof(CloseDoorTrigger), 3f);
         //Invoke(nameof(NextTarget), 2f);
         //Invoke(nameof(DisableHandWeight), 3.55f);
-        Invoke(nameof(ActivatePlayerBehaviors), 4);
+        Invoke(nameof(ActivatePlayerBehaviors), 4.6f);
         yield return null;
     }
 

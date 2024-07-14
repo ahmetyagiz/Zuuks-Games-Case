@@ -287,6 +287,11 @@ namespace StarterAssets
 
         private void JumpAndGravity()
         {
+            if (disableLook)
+            {
+                _input.jump = false;
+                return;
+            }
             if (Grounded)
             {
                 // reset the fall timeout timer

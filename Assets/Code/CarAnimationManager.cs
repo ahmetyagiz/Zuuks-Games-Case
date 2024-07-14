@@ -35,7 +35,10 @@ public class CarAnimationManager : MonoBehaviour
     private Transform seatTransform;
     [SerializeField] private Transform seatTransformLeft;
     [SerializeField] private Transform seatTransformRight;
-    [SerializeField] private TwoBoneIKConstraint twoBoneIKConstraint;
+    private TwoBoneIKConstraint selectedTwoBoneIK;
+    [SerializeField] private TwoBoneIKConstraint leftTwoBoneIKConstraint;
+    [SerializeField] private TwoBoneIKConstraint rightTwoBoneIKConstraint;
+
     private Transform handTarget;
     private Transform nextTarget; //sonraki tutacaðý nokta
 
@@ -81,6 +84,9 @@ public class CarAnimationManager : MonoBehaviour
             enterCarPoint = enterCarPointRight;
             EnterKenarTarget = enterKenarTargetRight;
             seatTransform = seatTransformRight;
+            leftTwoBoneIKConstraint.weight = 0;
+            rightTwoBoneIKConstraint.weight = 1;
+            selectedTwoBoneIK = rightTwoBoneIKConstraint;
         }
         else
         {
@@ -88,6 +94,9 @@ public class CarAnimationManager : MonoBehaviour
             enterCarPoint = enterCarPointLeft;
             EnterKenarTarget = enterKenarTargetLeft;
             seatTransform = seatTransformLeft;
+            rightTwoBoneIKConstraint.weight = 0;
+            leftTwoBoneIKConstraint.weight = 1;
+            selectedTwoBoneIK = leftTwoBoneIKConstraint;
         }
 
         handTarget = closestDoor.GetChild(0).transform;
@@ -121,7 +130,7 @@ public class CarAnimationManager : MonoBehaviour
     IEnumerator EnterCarRoutine()
     {
         seatChanging = false;
-        twoBoneIKConstraint.data.target = handTarget;
+        selectedTwoBoneIK.data.target = handTarget;
         rigBuilder.Build();
         thirdPersonController.disableLook = true;
         animator.applyRootMotion = true;
@@ -155,7 +164,9 @@ public class CarAnimationManager : MonoBehaviour
         {
             if (closestDoor.name == "door_FR")
             {
-                transform.DOJump(seatTransformLeft.position, 0.13f, 2, 1.25f).SetEase(Ease.Linear).OnComplete(() =>
+                UseSteerWheelAnimation();
+
+                transform.DOJump(seatTransformLeft.position, 0.06f, 2, 1.25f).SetEase(Ease.Linear).OnComplete(() =>
                 {
                     seatChanging = true;
                     isCharacterFullySeated = true;
@@ -165,6 +176,7 @@ public class CarAnimationManager : MonoBehaviour
             else
             {
                 isCharacterFullySeated = true;
+                UseSteerWheelAnimation();
                 transform.parent = seatTransform;
             }
         });
@@ -194,7 +206,7 @@ public class CarAnimationManager : MonoBehaviour
     void NextTarget()
     {
         EnableHandWeight();
-        twoBoneIKConstraint.data.target = nextTarget;
+        selectedTwoBoneIK.data.target = nextTarget;
         rigBuilder.Build();
     }
     #endregion
@@ -207,6 +219,9 @@ public class CarAnimationManager : MonoBehaviour
         {
             transform.DOLookAt(handTarget.position, 0.5f, AxisConstraint.Y, Vector3.up);
         }
+
+        selectedTwoBoneIK.data.target = handTarget;
+        rigBuilder.Build();
         GetSelectedDoorTransforms();
         isCharacterFullySeated = false;
         animator.SetTrigger("ExitCar");
@@ -231,4 +246,16 @@ public class CarAnimationManager : MonoBehaviour
         characterController.enabled = true;
     }
     #endregion
+
+    [SerializeField] private Transform leftSteerWheelTarget;
+    [SerializeField] private Transform rightSteerWheelTarget;
+
+    void UseSteerWheelAnimation()
+    {
+        leftTwoBoneIKConstraint.data.target = leftSteerWheelTarget;
+        DOTween.To(() => leftTwoBoneIKConstraint.weight, x => leftTwoBoneIKConstraint.weight = x, 1f, 1).SetEase(Ease.OutSine);
+        rightTwoBoneIKConstraint.data.target = rightSteerWheelTarget;
+        DOTween.To(() => leftTwoBoneIKConstraint.weight, x => leftTwoBoneIKConstraint.weight = x, 1f, 1).SetEase(Ease.OutSine);
+        rigBuilder.Build();
+    }
 }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 435240714}
   - component: {fileID: 435240717}
   - component: {fileID: 435240716}
-  m_Layer: 0
-  m_Name: RightDoorNextTarget
+  m_Layer: 2
+  m_Name: RightHandDoorNextTarget
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435240713}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 628855390}
   - component: {fileID: 628855393}
   - component: {fileID: 628855392}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: steeringWheelRightTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628855389}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 698672461}
   - component: {fileID: 698672464}
   - component: {fileID: 698672463}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: steeringWheelLeftTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698672460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -260,8 +260,8 @@ GameObject:
   - component: {fileID: 795776552}
   - component: {fileID: 795776555}
   - component: {fileID: 795776554}
-  m_Layer: 0
-  m_Name: RightDoorTarget
+  m_Layer: 2
+  m_Name: RightHandDoorTarget
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,7 +297,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795776551}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -398,7 +398,7 @@ MonoBehaviour:
   - {fileID: 8543828200101942378}
   - {fileID: 8543828200101942376}
   _cameras:
-    setLayers: 1
+    setLayers: 0
     cameras:
     - _camera: {fileID: 650112751067046654}
       rotationType: 2
@@ -976,7 +976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &650112749944611803
 Transform:
   m_ObjectHideFlags: 0
@@ -1093,8 +1093,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 650112750245788453}
-  m_Layer: 0
-  m_Name: DoorSideKenaraCekilLeft
+  m_Layer: 2
+  m_Name: DoorSideKenaraCekilLeft_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1108,7 +1108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650112750245788452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.99, y: -1.1, z: -1.44}
+  m_LocalPosition: {x: -1.9, y: -1.1, z: -1.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1124,7 +1124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 650112750274709416}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SeatTransformLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1144,7 +1144,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8543828200102103106}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650112750312896740
 GameObject:
@@ -1155,7 +1155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 650112750312896741}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WheelColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1179,7 +1179,7 @@ Transform:
   - {fileID: 650112750466503034}
   - {fileID: 650112750805284785}
   m_Father: {fileID: 8543828200102103106}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650112750466503037
 GameObject:
@@ -1191,7 +1191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 650112750466503034}
   - component: {fileID: 650112750466503035}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BR (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1254,8 +1254,8 @@ GameObject:
   - component: {fileID: 650112750606819020}
   - component: {fileID: 650112750606819023}
   - component: {fileID: 650112750606819022}
-  m_Layer: 0
-  m_Name: LeftDoorTarget
+  m_Layer: 2
+  m_Name: LeftHandDoorTarget
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1291,7 +1291,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650112750606819008}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1341,7 +1341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &650112750663682849
 Transform:
   m_ObjectHideFlags: 0
@@ -1360,7 +1360,7 @@ Transform:
   - {fileID: 650112749944611803}
   - {fileID: 650112751915175835}
   m_Father: {fileID: 8543828200102103106}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650112750805284784
 GameObject:
@@ -1372,7 +1372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 650112750805284785}
   - component: {fileID: 650112750805284798}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FL (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1443,7 +1443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &650112750928635845
 Transform:
   m_ObjectHideFlags: 0
@@ -1570,7 +1570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &650112751067046642
 Transform:
   m_ObjectHideFlags: 0
@@ -1687,7 +1687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 650112751090487220}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WheelMeshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1711,7 +1711,7 @@ Transform:
   - {fileID: 8543828200102103118}
   - {fileID: 8543828200102103116}
   m_Father: {fileID: 8543828200102103106}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650112751163268716
 GameObject:
@@ -1723,7 +1723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 650112751163268717}
   - component: {fileID: 650112751163268714}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BL (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1784,7 +1784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 650112751235432928}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CenterOfMass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1804,7 +1804,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8543828200102103106}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650112751354686215
 GameObject:
@@ -1825,7 +1825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &650112751354686212
 Transform:
   m_ObjectHideFlags: 0
@@ -1942,7 +1942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 650112751374662034}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: CarEnterPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1974,7 +1974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 650112751463177779}
   - component: {fileID: 650112751463177776}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FR (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2037,8 +2037,8 @@ GameObject:
   - component: {fileID: 650112751856051846}
   - component: {fileID: 650112751856051845}
   - component: {fileID: 650112751856051844}
-  m_Layer: 0
-  m_Name: LeftDoorNextTarget
+  m_Layer: 2
+  m_Name: LeftHandDoorNextTarget
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2074,7 +2074,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650112751856052089}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2128,7 +2128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &650112751915175835
 Transform:
   m_ObjectHideFlags: 0
@@ -2245,7 +2245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4903740191006155233}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Volant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2277,7 +2277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7826778374937843494}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: CarEnterPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2308,8 +2308,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3693338802021061518}
-  m_Layer: 0
-  m_Name: DoorSideKenaraCekilRight
+  m_Layer: 2
+  m_Name: DoorSideKenaraCekilRight_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2323,12 +2323,74 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2835151955904002335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -1.1, z: -1.44}
+  m_LocalPosition: {x: 1.9, y: -1.1, z: -1.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8543828200102103106}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6151088165136395774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4128537205708223743}
+  m_Layer: 2
+  m_Name: DoorSideKenaraCekilLeft_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4128537205708223743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151088165136395774}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.316, y: -0.9, z: -0.485}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8543828200102103106}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7916484610508550293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2270352267712640943}
+  m_Layer: 2
+  m_Name: DoorSideKenaraCekilRight_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2270352267712640943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916484610508550293}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.316, y: -0.9, z: -0.485}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8543828200102103106}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7942398946880522291
 GameObject:
@@ -2339,7 +2401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3146050415902277327}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SeatTransformRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2359,7 +2421,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8543828200102103106}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &8543828200101942370
 GameObject:
@@ -2373,7 +2435,7 @@ GameObject:
   - component: {fileID: 650112750259935300}
   - component: {fileID: 650112750259935302}
   - component: {fileID: 650112750259935303}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Car2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2399,6 +2461,8 @@ Transform:
   - {fileID: 7826778374937843494}
   - {fileID: 650112750245788453}
   - {fileID: 3693338802021061518}
+  - {fileID: 4128537205708223743}
+  - {fileID: 2270352267712640943}
   - {fileID: 650112750274709416}
   - {fileID: 3146050415902277327}
   - {fileID: 650112751235432928}
@@ -2485,7 +2549,7 @@ GameObject:
   - component: {fileID: 8543828200102103108}
   - component: {fileID: 8543828200105003108}
   - component: {fileID: 8543828200103873188}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2568,7 +2632,7 @@ GameObject:
   - component: {fileID: 8543828200102103110}
   - component: {fileID: 8543828200105003110}
   - component: {fileID: 8543828200103873190}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2652,7 +2716,7 @@ GameObject:
   - component: {fileID: 8543828200105003114}
   - component: {fileID: 8543828200103873194}
   - component: {fileID: 1120963359}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: door_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2759,7 +2823,7 @@ GameObject:
   - component: {fileID: 8543828200105003116}
   - component: {fileID: 8543828200103873196}
   - component: {fileID: 650112751181807085}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: door_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2865,7 +2929,7 @@ GameObject:
   - component: {fileID: 8543828200102103116}
   - component: {fileID: 8543828200105003118}
   - component: {fileID: 8543828200103873198}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2948,7 +3012,7 @@ GameObject:
   - component: {fileID: 8543828200102103118}
   - component: {fileID: 8543828200105003104}
   - component: {fileID: 8543828200103873184}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3031,7 +3095,7 @@ GameObject:
   - component: {fileID: 8543828200102103126}
   - component: {fileID: 8543828200105003112}
   - component: {fileID: 8543828200103873192}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: steering_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

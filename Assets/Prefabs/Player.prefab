@@ -227,7 +227,7 @@ MonoBehaviour:
   GroundedRadius: 0.28
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 5
+    m_Bits: 133
   CinemachineCameraTarget: {fileID: 5748608878865252490}
   TopClamp: 70
   BottomClamp: -30
@@ -514,6 +514,8 @@ MonoBehaviour:
   leftSteerWheelTarget: {fileID: 0}
   rightSteerWheelTarget: {fileID: 0}
   enterAndExitButton: {fileID: 0}
+  leftDoorCheckManager: {fileID: 0}
+  rightDoorCheckManager: {fileID: 0}
 --- !u!1 &195990078762700173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,7 +2019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Data:
     m_Root: {fileID: 1194928888929715317}
     m_Mid: {fileID: 1194928888929715255}
@@ -2235,7 +2237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Data:
     m_Root: {fileID: 1194928888929715327}
     m_Mid: {fileID: 1194928888929715253}

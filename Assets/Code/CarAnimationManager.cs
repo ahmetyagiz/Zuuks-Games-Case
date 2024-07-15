@@ -1,4 +1,5 @@
 using DG.Tweening;
+using JetBrains.Annotations;
 using StarterAssets;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -54,6 +55,9 @@ public class CarAnimationManager : MonoBehaviour
     internal bool moveToSeat;
     private bool seatChanging;
     private Transform closestDoor;
+
+    [SerializeField] private CheckDoorBlockManager leftDoorCheckManager;
+    [SerializeField] private CheckDoorBlockManager rightDoorCheckManager;
 
     private void Start()
     {
@@ -139,6 +143,11 @@ public class CarAnimationManager : MonoBehaviour
 
     public void CarExitAnimation()
     {
+        if (leftDoorCheckManager.isDoorBlocked)
+        {
+            Debug.Log("Sol kapý engelleniyor, aþaðý inemezsin.");
+            return;
+        }
         GetSelectedDoorTransforms();
         ExitCarRoutine();
         AddEventListeners("CarEnter");

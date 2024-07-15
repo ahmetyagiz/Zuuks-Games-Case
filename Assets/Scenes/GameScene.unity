@@ -3424,6 +3424,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mustang 1970
       objectReference: {fileID: 0}
+    - target: {fileID: 650112749944611802, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112750663682848, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112750928635844, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751067046645, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751354686215, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 650112751915175834, guid: 6c600a1f5eac63348a1fc8a9905dad48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 654569424966047013, guid: 6c600a1f5eac63348a1fc8a9905dad48,
         type: 3}
       propertyPath: m_RootOrder
